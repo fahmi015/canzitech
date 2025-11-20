@@ -1,159 +1,625 @@
-<!DOCTYPE html>
-<html class="scroll-smooth">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Canzi - Software Agency</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body>
-        <header class="bg-white">
-            <nav class="flex items-center justify-between p-6 lg:px-24" aria-label="Global">
-                <div class="flex lg:flex-1">
-                    <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
-                        <img class="h-8 w-auto" src="logo.png" alt="">
-                    </a>
-                </div>
-                <div class="flex lg:hidden">
-                    <button type="button" onclick="toggel()" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="index.html" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
-                    <a href="privacy.html" class="text-sm font-semibold leading-6 text-gray-900">Privacy policy</a>
-                </div>
-                
-            </nav>
-            <div class="lg:hidden hidden" id='mobilenav' role="dialog" aria-modal="true">
-                <div class="fixed inset-0 z-10"></div>
-                <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div class="flex items-center justify-between">
-                        <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
-                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
-                        </a>
-                        <button type="button" onclick="toggel()" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                            <span class="sr-only">Close menu</span>
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-gray-500/10">
-                            <div class="space-y-2 py-6">
-                                <a href="index.html" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Home</a>
-                                <a href="privacy.html" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Privacy</a>
-                            </div>
-                        </div>
-                    </div>
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<!-- Custom animation (optional) -->
+<style>
+    .card-img {
+        transition: transform .4s ease;
+    }
+
+    .service-card:hover .card-img {
+        transform: translateY(-6px);
+    }
+
+    .box__icon {
+        clip-path: path("M158.159 123.362L33.0347 130C20.9667 130 11.1779 120.27 11.1779 108.274L4.5 29.4124C4.5 17.4166 14.2889 7.68637 26.3569 7.68637L168.643 2C180.711 2 190.5 11.7303 190.5 23.726L180.005 101.636C180.005 113.632 170.216 123.362 158.148 123.362H158.159Z");
+        background-color: #ffe8e8;
+        width: 190px;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .partner-box {
+        height: 100%;
+        padding: 1.5rem;
+        background-color: #fff;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1.5rem;
+    }
+
+    .button {
+        font-size: 1.125rem;
+        line-height: 1.5;
+        font-weight: 700;
+        padding: .75rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: .5rem;
+        background-color: #f51e1e;
+        color: #fff;
+        border: 1px solid;
+        border-color: #f51e1e;
+        border-radius: 14px;
+        transition: background-color 150ms linear;
+        cursor: pointer;
+        width: max-content;
+        max-width: 100%;
+    }
+
+    .banner-wrapper {
+        padding: 4rem 0;
+    }
+
+    .container {
+        max-width: 1320px;
+    }
+
+    .banner {
+        width: 100%;
+        background-color: #f51e1e;
+        background-image: url('https://done.ma/app/themes/donepress/build/images/banner-bg.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: -30px center;
+        border-radius: 20px;
+    }
+
+    .banner__image {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .banner__content {
+        padding: 1.5rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: .25rem;
+    }
+
+  
+
+    .banner__image img {
+        position: absolute;
+        z-index: 2;
+        max-height: calc(100% + 4rem);
+        width: auto;
+    }
+
+    .banner__content__title {
+        font-size: 2.5rem;
+        line-height: 150%;
+        font-weight: 700;
+    }
+
+    .banner__content__title,
+    .banner__content__subtitle {
+        color: #fff;
+    }
+
+    .banner__content__title a[href] {
+        position: relative;
+        top: 3px;
+        display: inline-block;
+        width: 7.4rem;
+        padding: 0 .25rem;
+    }
+
+    .banner__content .button {
+        margin-top: 1.25rem;
+    }
+
+    .button--light {
+        background-color: #fff;
+        border-color: #fff;
+        color: #f54e1e;
+    }
+
+</style>
+
+<body>
+    <header class="bg-white">
+        <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+            <div class="flex items-center gap-x-24">
+                <a href="index.html" class="-m-1.5 p-1.5">
+                    <span class="sr-only">Your Company</span>
+                    <img src="image/Canzi-Logo2 (1) (1).png" alt="" class="h-9 w-auto" />
+                </a>
+                <div class="hidden lg:flex lg:gap-x-9">
+                    <a href="index.html" class="text-sm/6 font-semibold text-gray-900">Home</a>
+                    <a href="index.html#services" class="text-sm/6 font-semibold text-gray-900">Services</a>
+                    <a href="index.html#partners" class="text-sm/6 font-semibold text-gray-900">Partners</a>
+                    <a href="aboutus.html" class="text-sm/6 font-semibold text-gray-900">About us</a>
                 </div>
             </div>
-        </header>
-
-        <div class="relative isolate overflow-hidden bg-white py-24 sm:py-32">
-            <div class="mx-auto  px-6 lg:px-24">
-                <div class="mx-auto max-w-2xl lg:mx-0">
-                    <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl mb-4">Software Agency</h2>
-                    <p class=" text-lg leading-8 text-gray-600">involved in the technological development of Morocco through the creation of applications</p>
+            <div class="flex lg:hidden">
+                <button type="button" command="show-modal" commandfor="mobile-menu"
+                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                    <span class="sr-only">Open main menu</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                        aria-hidden="true" class="size-6">
+                        <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:flex">
+                <a href="https://apps.canzitech.com/"
+                    class="text-sm/6 font-semibold px-2.5 py-2 bg-red-600 text-white rounded-lg">Download <span
+                        aria-hidden="true">&rarr;</span></a>
+            </div>
+        </nav>
+        <el-dialog>
+            <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
+                <div tabindex="0" class="fixed inset-0 focus:outline-none">
+                    <el-dialog-panel
+                        class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="-m-1.5 p-1.5">
+                                <span class="sr-only">Your Company</span>
+                                <img src="image/Canzi-Logo2 (1) (1).png"
+                                    alt="" class="h-8 w-auto" />
+                            </a>
+                            <button type="button" command="close" commandfor="mobile-menu"
+                                class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                                <span class="sr-only">Close menu</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    data-slot="icon" aria-hidden="true" class="size-6">
+                                    <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="mt-6 flow-root">
+                            <div class="-my-6 divide-y divide-gray-500/10">
+                                <div class="space-y-2 py-6">
+                                    <a href="index.html#services"
+                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Services</a>
+                                    <a href="index.html#partners"
+                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Partners</a>
+                                    <a href="aboutus.html"
+                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">About us</a>
+                                   
+                                </div>
+                                <div class="py-6">
+                                    <a href="#"
+                                        class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-red-900 hover:bg-red-50">
+                                        Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </el-dialog-panel>
                 </div>
-                <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
-                    <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-gray-200">
-                        <svg class="h-7 w-5 flex-none text-red-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clip-rule="evenodd" />
-                        </svg>
-                        <div class="text-base leading-7">
-                            <h3 class="font-semibold text-black">Mobile Applications</h3>
-                            <p class="mt-2 text-gray-600">
-                                we are dedicated to transforming your innovative ideas into powerful, user-friendly mobile apps
-                            </p>
+            </dialog>
+        </el-dialog>
+    </header>
+
+    <div  class="mx-auto flex  max-w-7xl items-center justify-between px-6 lg:px-8 bg-white">
+        <div class="w-full shadow-xl overflow-hidden rounded-xl bg-white shadow-sm outline outline-black/5 ">
+            <section class="relative w-full">
+                <!-- Background Image -->
+                <div class="absolute inset-0 bg-cover bg-center"
+                    style="background-image: url('https://www.foodora.com/wp-content/uploads/2025/07/foodora-home-learn-2.webp');">
+                </div>
+
+                <!-- Dark overlay -->
+                <div class="absolute inset-0 bg-black/40"></div>
+
+                <!-- Content -->
+                <div class="relative h-full flex items-center px-6 md:px-20 py-24">
+                    <div class="max-w-2xl text-white">
+
+                        <p class="text-lg font-semibold mb-2">Welcome to Canzi</p>
+
+                        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                            South Morocco’s Premier On-Demand Delivery App
+                        </h1>
+
+                        <p class="text-lg md:text-xl mb-8 text-gray-300">
+                            Introducing Presto, your go-to app for seamless food and grocery
+                            delivery across Africa!
+                        </p>
+
+                        <!-- Buttons -->
+                        <div class="flex flex-wrap gap-4">
+                            <!-- Google Play -->
+                            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.canzi.app"
+                                class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white">
+                                <img src="https://www.presto.app/images/playStore.svg" class="w-6 mr-3" alt="">
+                                <div class="text-left leading-tight">
+                                    <span class="text-xs">Download From</span><br>
+                                    <span class="text-base font-semibold">Google Play</span>
+                                </div>
+                            </a>
+
+                            <!-- App Store -->
+                            <a target="_blank" href="https://apps.apple.com/ma/app/canzi/id6670179294"
+                                class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white">
+                                <img src="https://www.presto.app/images/appStore.svg" class="w-6 mr-3" alt="">
+                                <div class="text-left leading-tight">
+                                    <span class="text-xs">Download From</span><br>
+                                    <span class="text-base font-semibold">App Store</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                    <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset  ring-gray-200">
-                        <svg class="h-7 w-5 flex-none text-red-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h9A1.5 1.5 0 0114 3.5v11.75A2.75 2.75 0 0016.75 18h-12A2.75 2.75 0 012 15.25V3.5zm3.75 7a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zm0 3a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM5 5.75A.75.75 0 015.75 5h4.5a.75.75 0 01.75.75v2.5a.75.75 0 01-.75.75h-4.5A.75.75 0 015 8.25v-2.5z" clip-rule="evenodd" />
-                            <path d="M16.5 6.5h-1v8.75a1.25 1.25 0 102.5 0V8a1.5 1.5 0 00-1.5-1.5z" />
-                        </svg>
-                        <div class="text-base leading-7">
-                            <h3 class="font-semibold text-black">Web Desing</h3>
-                            <p class="mt-2 text-gray-600">we are dedicated to crafting stunning, responsive websites that captivate audiences and drive results. </p>
-                        </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <div id="services" class="w-full py-16 bg-white">
+        <div class="text-center mb-12">
+            <p class="text-red-600 font-semibold">What we do</p>
+            <h2 class="text-4xl font-bold mt-2">Our Services</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto mt-4">
+                At Canzi, we're dedicated to delivering convenience and excellence in the
+                delivery industry. Explore our services and experience the ease of delivery
+                with Canzi.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">
+
+            <!-- CARD 1 -->
+            <div class="relative group bg-gradient-to-r from-red-400 to-red-600 rounded-2xl p-8 pb-42 text-white cursor-pointer 
+             transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.03]
+             hover:shadow-xl relative">
+
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-bold text-3xl">Restaurant</h3>
+                        <p class="text-white/80 mt-2">Restaurant Delivery</p>
                     </div>
-                    <div class="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset  ring-gray-200">
-                        <svg class="h-7 w-5 flex-none text-red-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M7.171 4.146l1.947 2.466a3.514 3.514 0 011.764 0l1.947-2.466a6.52 6.52 0 00-5.658 0zm8.683 3.025l-2.466 1.947c.15.578.15 1.186 0 1.764l2.466 1.947a6.52 6.52 0 000-5.658zm-3.025 8.683l-1.947-2.466c-.578.15-1.186.15-1.764 0l-1.947 2.466a6.52 6.52 0 005.658 0zM4.146 12.83l2.466-1.947a3.514 3.514 0 010-1.764L4.146 7.171a6.52 6.52 0 000 5.658zM5.63 3.297a8.01 8.01 0 018.738 0 8.031 8.031 0 012.334 2.334 8.01 8.01 0 010 8.738 8.033 8.033 0 01-2.334 2.334 8.01 8.01 0 01-8.738 0 8.032 8.032 0 01-2.334-2.334 8.01 8.01 0 010-8.738A8.03 8.03 0 015.63 3.297zm5.198 4.882a2.008 2.008 0 00-2.243.407 1.994 1.994 0 00-.407 2.243 1.993 1.993 0 00.992.992 2.008 2.008 0 002.243-.407c.176-.175.31-.374.407-.585a2.008 2.008 0 00-.407-2.243 1.993 1.993 0 00-.585-.407z" clip-rule="evenodd" />
-                        </svg>
-                        <div class="text-base leading-7">
-                            <h3 class="font-semibold text-black">Technical Support</h3>
-                            <p class="mt-2 text-gray-600">we are dedicated partner in ensuring seamless operation and optimal performance of your technology infrastructure.</p>
-                        </div>
+
+                    <span class="text-white text-2xl opacity-70 transition-all duration-300 
+                 group-hover:translate-x-2">
+                        <img src="https://www.presto.app/images/arrow-right.svg" alt="" srcset="">
+                    </span>
+                </div>
+
+                <img src="https://www.presto.app/images/eat.svg" class="card-img w-32 absolute"
+                    style="bottom: -20px;right: -20px;" />
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="service-card group bg-gradient-to-r from-green-400 to-green-600 rounded-2xl p-8 pb-42 text-white cursor-pointer 
+             transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.03]
+             hover:shadow-xl relative">
+
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-bold text-3xl">Supermarket</h3>
+                        <p class="text-white/80 mt-2">Grocery Delivery</p>
                     </div>
+
+                    <span class="text-white text-2xl opacity-70 transition-all duration-300 
+                 group-hover:translate-x-2">
+                        <img src="https://www.presto.app/images/arrow-right.svg" alt="" srcset="">
+                    </span>
+                </div>
+
+                <img src="https://www.presto.app/images/jet.svg" class="card-img w-32 absolute"
+                    style="bottom: -20px;right: -20px;" />
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="service-card group bg-gradient-to-r from-purple-400 to-purple-600 rounded-2xl p-8 pb-42 text-white cursor-pointer 
+             transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.03]
+             hover:shadow-xl relative">
+
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-bold text-3xl">Shop</h3>
+                        <p class="text-white/80 mt-2">Last Mile Delivery</p>
+                    </div>
+
+                    <span class="text-white text-2xl opacity-70 transition-all duration-300 
+                 group-hover:translate-x-2">
+                        <img src="https://www.presto.app/images/arrow-right.svg" alt="" srcset="">
+                    </span>
+                </div>
+
+                <img src="https://www.presto.app/images/line.svg" class="card-img w-32 absolute"
+                    style="bottom: -20px;right: -20px;" />
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="service-card group bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-2xl p-8 pb-42 text-white cursor-pointer 
+             transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.03]
+             hover:shadow-xl relative">
+
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-bold text-3xl">Go anywhere</h3>
+                        <p class="text-white/80 mt-2">Couriers act for you</p>
+                    </div>
+
+                    <span class="text-white text-2xl opacity-70 transition-all duration-300 
+                 group-hover:translate-x-2">
+                        <img src="https://www.presto.app/images/arrow-right.svg" alt="" srcset="">
+                    </span>
+                </div>
+
+                <img src="image/chapeau-magique.png" class="card-img w-32 absolute"
+                    style="bottom: -20px;right: -20px;" />
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="partners" class="bg-red-50 w-full py-24">
+        <div class="mx-auto max-w-7xl">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-red-600 font-semibold text-center">Be our partner</p>
+                <h1 class="text-4xl px-24 text-center font-semibold my-4 headline-4">
+                    Your opportunity to succeed and achieve financial independence starts here!
+                </h1>
+
+                <span class="text-lg text-center text-gray-600">
+                    Are you a shopkeeper, restaurateur, or entrepreneur? We're here to support you, step by step.
+                </span>
+            </div>
+
+            <div class="my-12 flex w-full justify-between gap-x-6">
+                <div class="partner-box w-1/2 bg-white text-center border border-gray-50 rounded-xl p-4">
+                    <div class="box__icon">
+                        <img src="https://done.ma/app/uploads/2025/04/driver.svg" alt="">
+                    </div>
+
+                    <h1 class="my-2 text-2xl font-semibold">Become a delivery driver</h1>
+                    <span class="text-lg text-gray-500">Generate your own income and choose the hours that suit you.</span>
+
+                    <a href="" class="button">Start now</a>
+                </div>
+
+
+                <div class="partner-box w-1/2 bg-white text-center border border-gray-50 rounded-xl p-4">
+                    <div class="box__icon">
+                        <img src="https://done.ma/app/uploads/2025/04/store.svg" alt="">
+                    </div>
+
+                    <h1 class="my-2 text-2xl font-semibold">Become a partner</h1>
+                    <span class="text-lg text-gray-500">Do you own a restaurant or shop? Join us and
+introduce your services to even more customers.</span>
+
+                    <a href="" class="button">Start now</a>
                 </div>
             </div>
         </div>
+    </div>
 
-        
+    <div class="bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+            <div class="mx-auto max-w-4xl">
+                <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Frequently asked questions
+                </h2>
+                <dl class="mt-16 divide-y divide-gray-900/10">
+                    <div class="py-6 first:pt-0 last:pb-0">
+                        <dt>
+                            <button type="button" command="--toggle" commandfor="faq-0"
+                                class="flex w-full items-start justify-between text-left text-gray-900">
+                                <span class="text-base/7 font-semibold">What is the Canzi app?</span>
+                                <span class="ml-6 flex h-7 items-center">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                                        <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                                        <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <el-disclosure id="faq-0" class="contents">
+                            <dd class="mt-2 pr-12">
+                                <p class="text-base/7 text-gray-600">
+                                    Canzi is a great Moroccan app that offers a variety of services such as
+ordering meals, grocery shopping, or even sending flowers
+directly to your home.
+                                </p>
+                            </dd>
+                        </el-disclosure>
+                    </div>
+                    <div class="py-6 first:pt-0 last:pb-0">
+                        <dt>
+                            <button type="button" command="--toggle" commandfor="faq-1"
+                                class="flex w-full items-start justify-between text-left text-gray-900">
+                                <span class="text-base/7 font-semibold">How does the Canzi app work?</span>
+                                <span class="ml-6 flex h-7 items-center">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                                        <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                                        <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </dt>
+                        <el-disclosure id="faq-1" hidden class="contents">
+                            <dd class="mt-2 pr-12">
+                                <p class="text-base/7 text-gray-600">The app connects customers with restaurants
 
-        <section class="text-center bg-gray-100 py-24 sm:py-32">
-            <div class="flex items-center justify-center mb-4">
-                <img src="left-quote.png" class="w-16">
+and local shops. You can easily place an order through the app, pay
+online, and track your delivery in real time.</p>
+                            </dd>
+                        </el-disclosure>
+                    </div>
+                </dl>
             </div>
-            <h1 class="text-2xl mb-2 text-gray-700">“Our creativity motivates, Morocco is limitless.”</h1>
-            <span class=" font-semibold text-black text-xl">President Director General</span>
-        </section>
+        </div>
+    </div>
 
-        <footer class="bg-white">
-            <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
-                <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
-                  <div class="pb-6">
-                    <a href="index.html" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Home</a>
-                  </div>
-                  <div class="pb-6">
-                    <a href="privacy.html" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Privacy policy</a>
-                  </div>
-                </nav>
-                <div class="mt-10 flex justify-center space-x-10">
-                  <a href="#" class="text-gray-400 hover:text-gray-500">
-                    <span class="sr-only">Facebook</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-gray-500">
-                    <span class="sr-only">Instagram</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-gray-500">
-                    <span class="sr-only">X</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
-                    </svg>
-                  </a>
-                  
+
+
+    <div class="mx-auto max-w-7xl my-16 footer-banner">
+        <section class="banner-wrapper">
+            <div class="container">
+                <div class="banner py-24 relative">
+                    <div class="flex justify-between">
+                        <div class="w-1/3">
+                            <svg viewBox="0 0 366 729" role="img" class="mx-auto w-72 drop-shadow-xl absolute -top-20 left-10 rotate-6 hover:rotate-2">
+                                <title>App screenshot</title>
+                                <defs>
+                                <clipPath id="2ade4387-9c63-4fc4-b754-10e687a0d332">
+                                    <rect width="316" height="684" rx="36"></rect>
+                                </clipPath>
+                                </defs>
+                                <path fill="#4B5563" d="M363.315 64.213C363.315 22.99 341.312 1 300.092 1H66.751C25.53 1 3.528 22.99 3.528 64.213v44.68l-.857.143A2 2 0 0 0 1 111.009v24.611a2 2 0 0 0 1.671 1.973l.95.158a2.26 2.26 0 0 1-.093.236v26.173c.212.1.398.296.541.643l-1.398.233A2 2 0 0 0 1 167.009v47.611a2 2 0 0 0 1.671 1.973l1.368.228c-.139.319-.314.533-.511.653v16.637c.221.104.414.313.56.689l-1.417.236A2 2 0 0 0 1 237.009v47.611a2 2 0 0 0 1.671 1.973l1.347.225c-.135.294-.302.493-.49.607v377.681c0 41.213 22 63.208 63.223 63.208h95.074c.947-.504 2.717-.843 4.745-.843l.141.001h.194l.086-.001 33.704.005c1.849.043 3.442.37 4.323.838h95.074c41.222 0 63.223-21.999 63.223-63.212v-394.63c-.259-.275-.48-.796-.63-1.47l-.011-.133 1.655-.276A2 2 0 0 0 366 266.62v-77.611a2 2 0 0 0-1.671-1.973l-1.712-.285c.148-.839.396-1.491.698-1.811V64.213Z"></path>
+                                <path fill="#343E4E" d="M16 59c0-23.748 19.252-43 43-43h246c23.748 0 43 19.252 43 43v615c0 23.196-18.804 42-42 42H58c-23.196 0-42-18.804-42-42V59Z"></path>
+                                <foreignObject width="316" height="684" transform="translate(24 24)" clip-path="url(#2ade4387-9c63-4fc4-b754-10e687a0d332)">
+                                <img src="image/Screenshot_2025-11-20-19-24-45-980_com.canzi.app.jpg" alt="">
+                                </foreignObject>
+                            </svg>
+                        </div>
+                        <div class="w-2/3">
+                            <span class="text-3xl text-white font-semibold">Discover the best restaurants and order your favorite dishes via the app</span>
+
+                            <a class="app-download-link button button--light my-4" target="_blank"
+                            href="https://apps.canzitech.com/" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                stroke="currentColor" fill="none" class="done-icons-download">
+                                <path d="M8 28H24M16 4V22.6667M16 22.6667L22.6667 16M16 22.6667L9.33333 16"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg> Download the app </a>
+                        </div>
+                    </div>
                 </div>
-                <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; 2024 Canzi Tech,  All rights reserved.</p>
             </div>
-        </footer>
+        </section>
+    </div>
 
-    </body>
+    <footer class="bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-16 sm:py-16 lg:px-8 lg:py-16">
 
-    <script type="text/javascript">
-        
-        function toggel(){
-              const elem = document.getElementById("mobilenav");
-              if(elem.classList.contains('hidden')){
-                elem.classList.remove('hidden')
-              }else {
-                elem.classList.add('hidden')
-              }
+            <div class="border-t border-gray-900/10 pt-12 xl:grid xl:grid-cols-3 xl:gap-8">
+                <img src="image/Canzi-Logo2 (1) (1).png" alt="" class="h-9 w-auto" />
+                <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm/6 font-semibold text-gray-950">Services</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                <li>
+                                    <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900">Restaurants</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900">Supermarkets</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900">Shop</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900">Go anywhere</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm/6 font-semibold text-gray-950">Support</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                <li>
+                                    <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900">Contact us</a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm/6 font-semibold text-gray-950">Company</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                <li>
+                                    <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900">About</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900">Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900">Press</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm/6 font-semibold text-gray-950">Legal</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                               
+                                <li>
+                                    <a href="privacy.html" class="text-sm/6 text-gray-600 hover:text-gray-900">Privacy policy</a>
+                                </li>
+                              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
+                <div class="flex gap-x-6 md:order-2">
+                    <a href="#" class="text-gray-600 hover:text-gray-800">
+                        <span class="sr-only">Facebook</span>
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-6">
+                            <path
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                clip-rule="evenodd" fill-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-gray-800">
+                        <span class="sr-only">Instagram</span>
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-6">
+                            <path
+                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                clip-rule="evenodd" fill-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-gray-800">
+                        <span class="sr-only">X</span>
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-6">
+                            <path
+                                d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-gray-800">
+                        <span class="sr-only">GitHub</span>
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-6">
+                            <path
+                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                clip-rule="evenodd" fill-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-gray-800">
+                        <span class="sr-only">YouTube</span>
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-6">
+                            <path
+                                d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+                                clip-rule="evenodd" fill-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                <p class="mt-8 text-sm/6 text-gray-600 md:order-1 md:mt-0">© 2024 Canzi Tech, All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-        }
-    </script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</body>
+
 </html>
