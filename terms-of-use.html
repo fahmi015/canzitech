@@ -10,6 +10,16 @@
 </head>
 <!-- Custom animation (optional) -->
 <style>
+    [dir="rtl"] .border-l-4 {
+        border-left: none;
+        border-right: 4px solid #ef4444;
+    }
+
+    [dir="rtl"] .pl-8 {
+        padding-left: 0;
+        padding-right: 2rem;
+    }
+
     .card-img {
         transition: transform .4s ease;
     }
@@ -160,7 +170,7 @@
                     </svg>
                 </button>
             </div>
-
+            
             <div class="flex items-center gap-3">
                 <select onchange="setLanguage(this.value)"
                     class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-semibold bg-white text-gray-900 cursor-pointer focus:outline-none transition">
@@ -171,7 +181,6 @@
                     <a href="https://apps.canzitech.com/"
                         class="text-sm font-semibold px-2.5 py-2 bg-red-600 text-white rounded-lg flex items-center gap-2">
 
-                        <!-- SVG flèche vers le bas -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 
@@ -230,113 +239,153 @@
         </el-dialog>
     </header>
 
-    <div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
-        <div class="mx-auto max-w-2xl sm:text-center">
-            <h1 class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
-                data-i18n="contact_title">
-                Contactez-nous
-            </h1>
-            <p class="mt-2 text-lg/8 text-gray-600" data-i18n="contact_subtitle">
-                Nous sommes là pour vous aider. Contactez-nous via l'un des canaux suivants.
+
+
+
+
+    <section class="relative py-28 bg-gradient-to-br from-red-50 via-white to-red-50 overflow-hidden">
+
+        <div class="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-red-200/40 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-120px] right-[-120px] w-[450px] h-[450px] bg-red-100/50 rounded-full blur-3xl">
+        </div>
+
+        <div class="relative mx-auto max-w-4xl px-6 text-center">
+
+            <p class="text-sm tracking-[0.25em] text-red-600 uppercase font-semibold" data-i18n="terms_legal_info">
+                Legal Information
             </p>
+
+            <h2 class="mt-5 text-5xl sm:text-6xl font-bold text-gray-900 leading-tight" data-i18n="terms_title">
+                Terms of Use
+            </h2>
+
+            <p class="mt-6 text-lg text-gray-600 leading-8" data-i18n="terms_subtitle">
+                Please read these Terms of Use carefully before using Canzi. By accessing our website, you agree to
+                follow these rules and conditions.
+            </p>
+
         </div>
-        <div class="mx-auto mt-20 max-w-lg space-y-16">
-            <div class="flex gap-x-6">
-                <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-green-600"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-                        <path
-                            d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-                    </svg></div>
-                <div>
-                    <h3 class="text-base/7 font-semibold text-gray-900" data-i18n="contact_whatsapp_title">
-                        WhatsApp
-                    </h3>
+    </section>
 
-                    <p class="mt-2 text-base/7 text-gray-600" data-i18n="contact_whatsapp_desc">
-                        Chattez instantanément avec notre équipe d'assistance pour obtenir des réponses rapides à vos
-                        questions.
+
+
+
+    <section class="bg-white py-24">
+        <div class="mx-auto max-w-4xl px-6">
+            <div class="space-y-20">
+
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="terms_intro_title">
+                        1. Introduction
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="terms_intro_text">class="mt-6 text-lg
+                        leading-9 text-gray-600">
+                        These Terms of Use govern your access to and use of the Canzi website and services.
+                        <br><br>
+                        By using our platform, you agree to comply with these terms. If you do not agree, you should not
+                        use our services.
                     </p>
-                    <p class="mt-4 text-sm/6 font-semibold rtl:text-right"><a href="https://wa.me/+2120530003000"
-                            class="inline-flex items-center gap-x-1 text-green-600 rtl:justify-end" dir="ltr">05 30 00
-                            30 00 <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="green"
-                                viewBox="0 0 24 24" style="width: 15px;" xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
-                            </svg></a></p>
                 </div>
+
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="terms_website_title">
+                        2. Use of the Website
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="terms_website_text">
+                        You agree to use this website only for lawful purposes. You must not:
+                        <br><br>
+                        - Use the site for illegal activities<br>
+                        - Attempt to hack or damage the website<br>
+                        - Copy or redistribute content without permission
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="terms_accounts_title">
+                        3. User Accounts
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="terms_accounts_text">
+                        If you create an account, you are responsible for maintaining the confidentiality of your login
+                        information.
+                        <br><br>
+                        You are fully responsible for all activities under your account.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="terms_services_title">
+                        4. Services
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="terms_services_text">
+                        Canzi provides delivery and related services. We may modify or stop services at any time without
+                        prior notice.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="terms_payments_title">
+                        5. Payments
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="terms_payments_text">
+                        All payments made through the platform must be valid and authorized.
+                        <br><br>
+                        We are not responsible for payment errors caused by third-party providers.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="terms_liability_title">
+                        6. Limitation of Liability
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="terms_liability_text">
+                        Canzi is not responsible for any indirect damages, data loss, or service interruptions caused by
+                        external factors.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="terms_changes_title">
+                        7. Changes to Terms
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="terms_changes_text">
+                        We may update these Terms of Use at any time. Continued use of the platform means you accept the
+                        new terms.
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="terms_contact_title">
+                        8. Contact Information
+                    </h2>
+
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="terms_contact_text">
+                        If you have any questions about these Terms of Use, please contact us via:<br><br>
+                        Email: support@canzi.ma<br>
+                        Phone: <span dir="ltr">0522-000-000</span>
+                    </p>
+                </div>
+
             </div>
-            <div class="flex gap-x-6">
-                <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-indigo-600"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-phone">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path
-                            d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
-                    </svg></div>
-                <div>
-                    <h3 class="text-base/7 font-semibold text-gray-900" data-i18n="contact_phone_title">
-                        Support téléphonique
-                    </h3>
 
-                    <p class="mt-2 text-base/7 text-gray-600" data-i18n="contact_phone_desc">
-                        Appelez-nous directement pour une assistance immédiate sur toute question urgente.
-                    </p>
-                    <p class="mt-4 text-sm/6 font-semibold rtl:text-right"><a href="tel:+2120530003000"
-                            class="inline-flex items-center gap-x-1 text-blue-600 rtl:justify-end" dir="ltr">05 30 00 30
-                            00 <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="blue" viewBox="0 0 24 24"
-                                style="width: 15px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
-                            </svg></a></p>
-                </div>
+            <div class="mt-24 border-t border-gray-200 pt-8">
+                <p class="text-center text-sm text-gray-500" data-i18n="terms_footer_note">
+                    By using our platform, you agree to this Privacy Policy.
+                </p>
             </div>
 
-
-            <div class="flex gap-x-6">
-                <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-red-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-mail">
-
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 7l9 6l9 -6" />
-                        <path d="M21 7v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                </div>
-
-                <div>
-                    <h3 class="text-base/7 font-semibold text-gray-900" data-i18n="contact_email_title">
-                        Email
-                    </h3>
-
-                    <p class="mt-2 text-base/7 text-gray-600" data-i18n="contact_email_desc">
-                        Send us an email and our team will get back to you as soon as possible.
-                    </p>
-
-                    <p class="mt-4 text-sm/6 font-semibold rtl:text-right">
-                        <a href="mailto:contact@canzigroup.com"
-                            class="inline-flex items-center gap-x-1 text-red-600 rtl:justify-end" dir="ltr">
-                            contact@canzigroup.com
-
-                            <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="red" viewBox="0 0 24 24"
-                                style="width: 15px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25">
-                                </path>
-                            </svg>
-                        </a>
-                    </p>
-                </div>
-            </div>
         </div>
-    </div>
+    </section>
+
+
+
     <footer class="bg-white">
         <div class="mx-auto max-w-7xl px-6 py-16 sm:py-16 lg:px-8 lg:py-16">
 
@@ -427,66 +476,17 @@
             </div>
 
             <div class="w-full flex justify-center items-center gap-6 mt-8 pt-6 ">
-                <!-- VISA -->
                 <img src="image/visa-logo.svg" alt="VISA" class="h-14 object-contain">
 
-                <!-- Payzone  -->
                 <img src="image/payzone-logo.png" alt="Payzone" class="h-24 object-contain">
 
-                <!-- Mastercard -->
                 <img src="image/mastercard-logo.svg" alt="Mastercard" class="h-14 object-contain">
 
-
             </div>
-
-
-
-
-
         </div>
     </footer>
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="text/javascript">
 
-        function toggel() {
-            const elem = document.getElementById("mobilenav");
-            if (elem.classList.contains('hidden')) {
-                elem.classList.remove('hidden')
-            } else {
-                elem.classList.add('hidden')
-            }
-
-        }
-
-        document.getElementById('contactForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent the form from submitting the traditional way
-
-            // Disable the submit button to prevent multiple submissions
-            const submitButton = event.target.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-
-            const formData = new FormData(this);
-
-            // Send data to the API
-            fetch('https://scripts.canzitech.com/contact/create_contact.php', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    // Handle the response
-                    window.open("thanks.html", "_blank");
-                    // Re-enable the submit button
-                    submitButton.disabled = false;
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    // Re-enable the submit button
-                    submitButton.disabled = false;
-                });
-        });
-    </script>
 </body>
 
 </html>

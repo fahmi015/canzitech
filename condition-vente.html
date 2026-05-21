@@ -10,6 +10,16 @@
 </head>
 <!-- Custom animation (optional) -->
 <style>
+    [dir="rtl"] .border-l-4 {
+        border-left: none;
+        border-right: 4px solid #ef4444;
+    }
+
+    [dir="rtl"] .pl-8 {
+        padding-left: 0;
+        padding-right: 2rem;
+    }
+
     .card-img {
         transition: transform .4s ease;
     }
@@ -161,6 +171,7 @@
                 </button>
             </div>
 
+
             <div class="flex items-center gap-3">
                 <select onchange="setLanguage(this.value)"
                     class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-semibold bg-white text-gray-900 cursor-pointer focus:outline-none transition">
@@ -230,113 +241,150 @@
         </el-dialog>
     </header>
 
-    <div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
-        <div class="mx-auto max-w-2xl sm:text-center">
-            <h1 class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
-                data-i18n="contact_title">
-                Contactez-nous
-            </h1>
-            <p class="mt-2 text-lg/8 text-gray-600" data-i18n="contact_subtitle">
-                Nous sommes là pour vous aider. Contactez-nous via l'un des canaux suivants.
+    <section class="relative py-28 bg-gradient-to-br from-red-50 via-white to-red-50 overflow-hidden">
+
+        <div class="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-red-200/40 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-120px] right-[-120px] w-[450px] h-[450px] bg-red-100/50 rounded-full blur-3xl">
+        </div>
+
+        <div class="relative mx-auto max-w-4xl px-6 text-center">
+
+            <p class="text-sm tracking-[0.25em] text-red-600 uppercase font-semibold" data-i18n="legal_info">
+                Legal Information
             </p>
+
+            <h1 class="mt-5 text-5xl sm:text-6xl font-bold text-gray-900 leading-tight" data-i18n="sale_terms_title">
+                General Terms & Conditions of Sale
+            </h1>
+
+            <p class="mt-6 text-lg text-gray-600 leading-8" data-i18n="sale_terms_subtitle">
+                Transparent rules for ordering, delivery, payments and using the Canzi platform.
+            </p>
+
         </div>
-        <div class="mx-auto mt-20 max-w-lg space-y-16">
-            <div class="flex gap-x-6">
-                <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-green-600"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-                        <path
-                            d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-                    </svg></div>
-                <div>
-                    <h3 class="text-base/7 font-semibold text-gray-900" data-i18n="contact_whatsapp_title">
-                        WhatsApp
-                    </h3>
+    </section>
 
-                    <p class="mt-2 text-base/7 text-gray-600" data-i18n="contact_whatsapp_desc">
-                        Chattez instantanément avec notre équipe d'assistance pour obtenir des réponses rapides à vos
-                        questions.
+
+    <section class="bg-white py-24">
+
+        <div class="mx-auto max-w-4xl px-6">
+
+            <div class="space-y-20">
+
+                <!-- ITEM -->
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="sale_section1_title">
+                        1. Ordering and Purchasing
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="sale_section1_desc">
+                        Customers can choose restaurants and products through the Canzi application,
+                        add them to their cart, and confirm the order after selecting the delivery
+                        address and payment method. Once the order is confirmed, the restaurant
+                        starts preparing the order and the delivery driver handles the delivery.
                     </p>
-                    <p class="mt-4 text-sm/6 font-semibold rtl:text-right"><a href="https://wa.me/+2120530003000"
-                            class="inline-flex items-center gap-x-1 text-green-600 rtl:justify-end" dir="ltr">05 30 00
-                            30 00 <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="green"
-                                viewBox="0 0 24 24" style="width: 15px;" xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
-                            </svg></a></p>
                 </div>
+
+
+                <!-- ITEM -->
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="sale_section2_title">
+                        2. Payment Methods
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="sale_section2_desc">
+                        Canzi offers Cash on Delivery (COD). Electronic payment methods may
+                        also be available depending on the city and service availability.
+                    </p>
+                </div>
+
+
+                <!-- ITEM -->
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="sale_section3_title">
+                        3. Delivery
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="sale_section3_desc">
+                        Canzi aims to deliver orders as quickly as possible depending on
+                        restaurant location, weather conditions, and order volume.
+                        Delivery times remain estimated and may vary.
+                    </p>
+                </div>
+
+
+                <!-- ITEM -->
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="sale_section4_title">
+                        4. Cancellation and Refunds
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="sale_section4_desc">
+                        Customers may cancel orders before preparation begins.
+                        Once the restaurant confirms preparation, cancellation may no longer
+                        be possible. In case of issues, customers can contact Canzi support.
+                    </p>
+                </div>
+
+
+                <!-- ITEM -->
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="sale_section5_title">
+                        5. Company Responsibility
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="sale_section5_desc">
+                        Canzi acts as an intermediary between customers, restaurants,
+                        and delivery drivers. The company is not responsible for delays
+                        caused by circumstances beyond its control.
+                    </p>
+                </div>
+
+
+                <!-- ITEM -->
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="sale_section6_title">
+                        6. Protection of Personal Data
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="sale_section6_desc">
+                        Canzi respects user privacy and uses personal data only for
+                        processing orders and improving services.
+                    </p>
+                </div>
+
+
+                <!-- ITEM -->
+                <div class="border-l-4 border-red-500 pl-8">
+                    <h2 class="text-3xl font-bold text-gray-900" data-i18n="sale_section7_title">
+                        7. Terms of Application Use
+                    </h2>
+
+                    <p class="mt-6 text-lg leading-9 text-gray-600" data-i18n="sale_section7_desc">
+                        By using the Canzi application, users agree to comply with all
+                        applicable laws and avoid fraudulent or abusive use of the platform.
+                    </p>
+                </div>
+
             </div>
-            <div class="flex gap-x-6">
-                <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-indigo-600"><svg
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-phone">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path
-                            d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
-                    </svg></div>
-                <div>
-                    <h3 class="text-base/7 font-semibold text-gray-900" data-i18n="contact_phone_title">
-                        Support téléphonique
-                    </h3>
 
-                    <p class="mt-2 text-base/7 text-gray-600" data-i18n="contact_phone_desc">
-                        Appelez-nous directement pour une assistance immédiate sur toute question urgente.
-                    </p>
-                    <p class="mt-4 text-sm/6 font-semibold rtl:text-right"><a href="tel:+2120530003000"
-                            class="inline-flex items-center gap-x-1 text-blue-600 rtl:justify-end" dir="ltr">05 30 00 30
-                            00 <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="blue" viewBox="0 0 24 24"
-                                style="width: 15px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"></path>
-                            </svg></a></p>
-                </div>
+
+            <!-- FOOT NOTE -->
+            <div class="mt-24 border-t border-gray-200 pt-8">
+
+                <p class="text-center text-sm text-gray-500" data-i18n="sale_footer_note">
+                    By using the Canzi application, you agree to these Terms and Conditions.
+                </p>
+
             </div>
 
-
-            <div class="flex gap-x-6">
-                <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-red-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-mail">
-
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M3 7l9 6l9 -6" />
-                        <path d="M21 7v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                </div>
-
-                <div>
-                    <h3 class="text-base/7 font-semibold text-gray-900" data-i18n="contact_email_title">
-                        Email
-                    </h3>
-
-                    <p class="mt-2 text-base/7 text-gray-600" data-i18n="contact_email_desc">
-                        Send us an email and our team will get back to you as soon as possible.
-                    </p>
-
-                    <p class="mt-4 text-sm/6 font-semibold rtl:text-right">
-                        <a href="mailto:contact@canzigroup.com"
-                            class="inline-flex items-center gap-x-1 text-red-600 rtl:justify-end" dir="ltr">
-                            contact@canzigroup.com
-
-                            <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="red" viewBox="0 0 24 24"
-                                style="width: 15px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25">
-                                </path>
-                            </svg>
-                        </a>
-                    </p>
-                </div>
-            </div>
         </div>
-    </div>
+
+    </section>
+
+
+
+
     <footer class="bg-white">
         <div class="mx-auto max-w-7xl px-6 py-16 sm:py-16 lg:px-8 lg:py-16">
 
@@ -445,48 +493,8 @@
 
         </div>
     </footer>
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script type="text/javascript">
 
-        function toggel() {
-            const elem = document.getElementById("mobilenav");
-            if (elem.classList.contains('hidden')) {
-                elem.classList.remove('hidden')
-            } else {
-                elem.classList.add('hidden')
-            }
-
-        }
-
-        document.getElementById('contactForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent the form from submitting the traditional way
-
-            // Disable the submit button to prevent multiple submissions
-            const submitButton = event.target.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-
-            const formData = new FormData(this);
-
-            // Send data to the API
-            fetch('https://scripts.canzitech.com/contact/create_contact.php', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    // Handle the response
-                    window.open("thanks.html", "_blank");
-                    // Re-enable the submit button
-                    submitButton.disabled = false;
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    // Re-enable the submit button
-                    submitButton.disabled = false;
-                });
-        });
-    </script>
 </body>
 
 </html>

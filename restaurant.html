@@ -1,0 +1,524 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="js/i18n.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .step-line::after {
+            content: '';
+            position: absolute;
+            top: 2.5rem;
+            left: calc(50% + 2.5rem);
+            width: calc(100% - 5rem);
+            height: 2px;
+            background: linear-gradient(to right, #ef4444, #fca5a5);
+        }
+
+        .step-wrap:last-child .step-line::after {
+            display: none;
+        }
+
+        [dir="rtl"] .step-line::after {
+            left: auto;
+            right: calc(50% + 2.5rem);
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15);
+        }
+
+        [dir="rtl"] .border-l-4 {
+            border-left: none;
+            border-right: 4px solid #ef4444;
+        }
+
+        [dir="rtl"] .pl-6 {
+            padding-left: 0;
+            padding-right: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- HEADER -->
+    <!-- <header class="bg-white shadow-sm">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+            <div class="flex items-center gap-x-24">
+                <a href="index.html" class="-m-1.5 p-1.5">
+                    <img src="image/Canzi-Logo2 (1) (1).png" alt="" class="h-9 w-auto" />
+                </a>
+                <div class="hidden lg:flex lg:gap-x-9">
+                    <a href="index.html" class="text-sm/6 font-semibold text-gray-900" data-i18n="nav_home">Home</a>
+                    <a href="index.html#services" class="text-sm/6 font-semibold text-gray-900"
+                        data-i18n="nav_services">Services</a>
+                    <a href="index.html#partners" class="text-sm/6 font-semibold text-gray-900"
+                        data-i18n="nav_partners">Partners</a>
+                    <a href="aboutus.html" class="text-sm/6 font-semibold text-gray-900" data-i18n="nav_about">About
+                        us</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <select onchange="setLanguage(this.value)"
+                    class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-semibold bg-white text-gray-900 cursor-pointer focus:outline-none transition">
+                    <option value="en">EN</option>
+                    <option value="ar">AR</option>
+                </select>
+                <div class="hidden lg:flex">
+                    <a href="https://apps.canzitech.com/"
+                        class="text-sm font-semibold px-2.5 py-2 bg-red-600 text-white rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 5v14" />
+                            <path d="M19 12l-7 7-7-7" />
+                        </svg>
+                        <span data-i18n="download_btn">Download</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header> -->
+
+     <header class="bg-white">
+        <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+            <div class="flex items-center gap-x-24">
+                <a href="index.html" class="-m-1.5 p-1.5">
+                    <span class="sr-only">Your Company</span>
+                    <img src="image/Canzi-Logo2 (1) (1).png" alt="" class="h-9 w-auto" />
+                </a>
+                <div class="hidden lg:flex lg:gap-x-9">
+                    <a href="index.html" class="text-sm/6 font-semibold text-gray-900" data-i18n="nav_home">Home</a>
+                    <a href="index.html#services" class="text-sm/6 font-semibold text-gray-900"
+                        data-i18n="nav_services">Services</a>
+                    <a href="index.html#partners" class="text-sm/6 font-semibold text-gray-900"
+                        data-i18n="nav_partners">Partners</a>
+                    <a href="aboutus.html" class="text-sm/6 font-semibold text-gray-900" data-i18n="nav_about">About
+                        us</a>
+
+
+                </div>
+            </div>
+            <div class="flex lg:hidden">
+                <button type="button" command="show-modal" commandfor="mobile-menu"
+                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                    <span class="sr-only">Open main menu</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                        aria-hidden="true" class="size-6">
+                        <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+
+
+            <div class="flex items-center gap-3">
+                <select onchange="setLanguage(this.value)"
+                    class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-semibold bg-white text-gray-900 cursor-pointer focus:outline-none transition">
+                    <option value="en">EN</option>
+                    <option value="ar">AR</option>
+                </select>
+                
+                <div class="hidden lg:flex">
+                    <a href="https://apps.canzitech.com/"
+                        class="text-sm font-semibold px-2.5 py-2 bg-red-600 text-white rounded-lg flex items-center gap-2">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                            <path d="M12 5v14" />
+                            <path d="M19 12l-7 7-7-7" />
+                        </svg>
+
+                        <span data-i18n="download_btn">Download</span>
+
+                    </a>
+                </div>
+
+            </div>
+
+
+        </nav>
+        <el-dialog>
+            <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
+                <div tabindex="0" class="fixed inset-0 focus:outline-none">
+                    <el-dialog-panel
+                        class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="-m-1.5 p-1.5">
+                                <span class="sr-only">Your Company</span>
+                                <img src="image/Canzi-Logo2 (1) (1).png" alt="" class="h-8 w-auto" />
+                            </a>
+                            <button type="button" command="close" commandfor="mobile-menu"
+                                class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                                <span class="sr-only">Close menu</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    data-slot="icon" aria-hidden="true" class="size-6">
+                                    <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="mt-6 flow-root">
+                            <div class="-my-6 divide-y divide-gray-500/10">
+                                <div class="space-y-2 py-6">
+                                    <a href="index.html#services"
+                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Services</a>
+                                    <a href="index.html#partners"
+                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Partners</a>
+                                    <a href="aboutus.html"
+                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">About
+                                        us</a>
+
+                                </div>
+                                <div class="py-6">
+                                    <a href="#"
+                                        class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-red-900 hover:bg-red-50">
+                                        Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </el-dialog-panel>
+                </div>
+            </dialog>
+        </el-dialog>
+    </header>
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-red-50 via-white to-orange-50 py-24">
+        <div class="hero-blob bg-red-400 w-96 h-96 top-[-100px] left-[-100px]"></div>
+        <div class="hero-blob bg-orange-300 w-80 h-80 bottom-[-80px] right-[-80px]"></div>
+        <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <span
+                        class="inline-block bg-red-100 text-red-600 text-sm font-semibold px-4 py-1.5 rounded-full mb-4"
+                        data-i18n="card_restaurant_desc">Restaurant Delivery</span>
+                    <h1 class="text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6"
+                        data-i18n="service_restaurant_title">
+                        Order from your <span class="text-red-500">favorite</span> restaurants
+                    </h1>
+                    <p class="text-xl text-gray-500 leading-relaxed mb-8" data-i18n="service_restaurant_desc">
+                        Discover the best restaurants near you and enjoy your favorite meals delivered hot and fresh
+                        directly to your door in record time.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="https://play.google.com/store/apps/details?id=com.canzi.app" target="_blank"
+                            class="flex items-center bg-gray-100 px-5 py-3 rounded-xl text-black gap-3">
+                            <img src="https://www.presto.app/images/playStore.svg" class="w-6" alt="">
+                            <div class="text-left leading-tight">
+                                <span class="text-xs block">Download From</span>
+                                <span class="text-sm font-semibold">Google Play</span>
+                            </div>
+                        </a>
+
+                        <a href="https://apps.apple.com/ma/app/canzi/id6670179294" target="_blank"
+                            class="flex items-center bg-gray-100 px-5 py-3 rounded-xl text-black gap-3">
+                            <img src="https://www.presto.app/images/appStore.svg" class="w-6 brightness-0" alt="">
+                            <div class="text-left leading-tight">
+                                <span class="text-xs block">Download From</span>
+                                <span class="text-sm font-semibold">App Store</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div
+                            class="w-80 h-80 bg-gradient-to-br from-red-400 to-red-600 rounded-3xl flex items-center justify-center shadow-2xl">
+                            <img src="https://www.presto.app/images/eat.svg" class="w-56" alt="Restaurant">
+                        </div>
+                        <div
+                            class="absolute -bottom-4 -left-6 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3">
+                            <span class="text-2xl">🍔</span>
+                            <div>
+                                <p class="text-xs text-gray-400">Delivery time</p>
+                                <p class="font-bold text-gray-900">~30 min</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute -top-4 -right-6 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3">
+                            <span class="text-2xl">⭐</span>
+                            <div>
+                                <p class="text-xs text-gray-400">Top rated</p>
+                                <p class="font-bold text-gray-900">4.9 / 5</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESCRIPTION -->
+    <section class="py-20 bg-white">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-red-600 font-semibold text-sm uppercase tracking-widest mb-3"
+                    data-i18n="services_title_small">What we do</p>
+                <h2 class="text-4xl font-black text-gray-900" data-i18n="service_restaurant_about_title">Why order food
+                    with Canzi?</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-hover bg-red-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="service_restaurant_feat1_title">Wide
+                        Selection</h3>
+                    <p class="text-gray-500 leading-relaxed" data-i18n="service_restaurant_feat1_desc">Browse hundreds
+                        of restaurants from local favorites to popular chains — all in one app.</p>
+                </div>
+                <div class="card-hover bg-orange-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="service_restaurant_feat2_title">Fast
+                        Delivery</h3>
+                    <p class="text-gray-500 leading-relaxed" data-i18n="service_restaurant_feat2_desc">Our delivery
+                        network ensures your food arrives hot and fresh as quickly as possible.</p>
+                </div>
+                <div class="card-hover bg-red-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="service_restaurant_feat3_title">Live
+                        Tracking</h3>
+                    <p class="text-gray-500 leading-relaxed" data-i18n="service_restaurant_feat3_desc">Track your order
+                        in real time from the restaurant kitchen to your front door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="py-20 bg-gradient-to-br from-red-50 to-orange-50">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-red-600 font-semibold text-sm uppercase tracking-widest mb-3">Step by step</p>
+                <h2 class="text-4xl font-black text-gray-900" data-i18n="service_how_title">How does it work?</h2>
+                <p class="text-gray-500 mt-4 text-lg" data-i18n="service_how_subtitle">Order your meal in 4 simple steps
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+
+                <!-- Step 1 -->
+                <div class="step-wrap text-center relative">
+                    <div class="step-line">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-red-200">
+                            <!-- Smartphone icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                <line x1="12" y1="18" x2="12.01" y2="18" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm mt-4">
+                        <span class="text-red-500 font-black text-4xl">01</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2" data-i18n="service_step1_title">Open the
+                            app</h3>
+                        <p class="text-gray-500 text-sm" data-i18n="service_step1_desc">Download Canzi and create your
+                            free account in seconds.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-wrap text-center relative">
+                    <div class="step-line">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-orange-200">
+                            <!-- Search icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm mt-4">
+                        <span class="text-red-500 font-black text-4xl">02</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2" data-i18n="service_step2_title">Choose a
+                            restaurant</h3>
+                        <p class="text-gray-500 text-sm" data-i18n="service_step2_desc">Browse menus, read reviews, and
+                            pick what you're craving.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-wrap text-center relative">
+                    <div class="step-line">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-red-200">
+                            <!-- Shopping cart icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1" />
+                                <circle cx="20" cy="21" r="1" />
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm mt-4">
+                        <span class="text-red-500 font-black text-4xl">03</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2" data-i18n="service_step3_title">Place your
+                            order</h3>
+                        <p class="text-gray-500 text-sm" data-i18n="service_step3_desc">Add items to cart, confirm your
+                            address, and pay securely.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-wrap text-center relative">
+                    <div class="step-line">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-orange-200">
+                            <!-- Bike icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="5.5" cy="17.5" r="3.5" />
+                                <circle cx="18.5" cy="17.5" r="3.5" />
+                                <path d="M15 6a1 1 0 0 0 0-2h-3l-3 9H2" />
+                                <path d="M9.5 9H16l2 5" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm mt-4">
+                        <span class="text-red-500 font-black text-4xl">04</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2" data-i18n="service_step4_title">Enjoy your
+                            meal</h3>
+                        <p class="text-gray-500 text-sm" data-i18n="service_step4_desc">Track your driver live and
+                            receive your food at your door.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="py-20 bg-gradient-to-r from-red-500 to-red-700">
+        <div class="mx-auto max-w-4xl px-6 text-center">
+            <h2 class="text-4xl font-black text-white mb-4" data-i18n="service_cta_title">Hungry? Order now!</h2>
+            <p class="text-red-100 text-lg mb-8" data-i18n="service_cta_desc">Download the Canzi app and enjoy your
+                first order today.</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="https://play.google.com/store/apps/details?id=com.canzi.app" target="_blank"
+                    class="flex items-center bg-white px-6 py-3 rounded-xl text-gray-900 gap-3 font-semibold hover:bg-gray-100 transition">
+                    <img src="https://www.presto.app/images/playStore.svg" class="w-6" alt="">Google Play
+                </a>
+                <a href="https://apps.apple.com/ma/app/canzi/id6670179294" target="_blank"
+                    class="flex items-center bg-white px-6 py-3 rounded-xl text-gray-900 gap-3 font-semibold hover:bg-gray-100 transition">
+                    <img src="https://www.presto.app/images/appStore.svg" class="w-6" alt=""
+                        style="filter: invert(1);">App Store
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-16 sm:py-16 lg:px-8 lg:py-16">
+            <div class="border-t border-gray-900/10 pt-12 xl:grid xl:grid-cols-3 xl:gap-8">
+                <img src="image/Canzi-Logo2 (1) (1).png" alt="" class="h-9 w-auto" />
+                <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm/6 font-semibold text-gray-950" data-i18n="footer_services">Services</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                <li><a href="restaurant.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_restaurants">Restaurants</a></li>
+                                <li><a href="supermarket.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_supermarkets">Supermarkets</a></li>
+                                <li><a href="shop.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_shop">Shop</a></li>
+                                <li><a href="go.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_go_anywhere">Go anywhere</a></li>
+                            </ul>
+                        </div>
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm/6 font-semibold text-gray-950" data-i18n="footer_support">Support</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                <li><a href="contactus.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_contact_us">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm/6 font-semibold text-gray-950" data-i18n="footer_legal">Legal</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                <li><a href="privacy.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_privacy">Privacy policy</a></li>
+                                <li><a href="terms-of-use.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_terms_use">Terms of Use</a></li>
+                                <li><a href="condition-vente.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_sales_terms">General Terms and Conditions of Sale</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-900/10 pt-8 flex items-center justify-between">
+                <p class="text-sm/6 text-gray-600" data-i18n="footer_rights">© 2024 Canzi Tech, All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.canzi.app"
+                        class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white">
+                        <img src="https://www.presto.app/images/playStore.svg" class="w-6 mr-3" alt="">
+                        <div class="text-left leading-tight"><span class="text-xs">Download From</span><br><span
+                                class="text-base font-semibold">Google Play</span></div>
+                    </a>
+                    <a target="_blank" href="https://apps.apple.com/ma/app/canzi/id6670179294"
+                        class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white">
+                        <img src="https://www.presto.app/images/appStore.svg" class="w-6 mr-3" alt="">
+                        <div class="text-left leading-tight"><span class="text-xs">Download From</span><br><span
+                                class="text-base font-semibold">App Store</span></div>
+                    </a>
+                </div>
+            </div>
+            <div class="w-full flex justify-center items-center gap-6 mt-8 pt-6">
+                <img src="image/visa-logo.svg" alt="VISA" class="h-14 object-contain">
+                <img src="image/payzone-logo.png" alt="Payzone" class="h-24 object-contain">
+                <img src="image/mastercard-logo.svg" alt="Mastercard" class="h-14 object-contain">
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</body>
+
+</html>

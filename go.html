@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="js/i18n.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .step-line::after {
+            content: '';
+            position: absolute;
+            top: 2.5rem;
+            left: calc(50% + 2.5rem);
+            width: calc(100% - 5rem);
+            height: 2px;
+            background: linear-gradient(to right, #d97706, #fcd34d);
+        }
+
+        .step-wrap:last-child .step-line::after {
+            display: none;
+        }
+
+        [dir="rtl"] .step-line::after {
+            left: auto;
+            right: calc(50% + 2.5rem);
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(217, 119, 6, 0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <header class="bg-white shadow-sm">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+            <div class="flex items-center gap-x-24">
+                <a href="index.html"><img src="image/Canzi-Logo2 (1) (1).png" alt="" class="h-9 w-auto" /></a>
+                <div class="hidden lg:flex lg:gap-x-9">
+                    <a href="index.html" class="text-sm/6 font-semibold text-gray-900" data-i18n="nav_home">Home</a>
+                    <a href="index.html#services" class="text-sm/6 font-semibold text-gray-900"
+                        data-i18n="nav_services">Services</a>
+                    <a href="index.html#partners" class="text-sm/6 font-semibold text-gray-900"
+                        data-i18n="nav_partners">Partners</a>
+                    <a href="aboutus.html" class="text-sm/6 font-semibold text-gray-900" data-i18n="nav_about">About
+                        us</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <select onchange="setLanguage(this.value)"
+                    class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-semibold bg-white text-gray-900 cursor-pointer focus:outline-none transition">
+                    <option value="en">EN</option>
+                    <option value="ar">AR</option>
+                </select>
+                <div class="hidden lg:flex">
+                    <a href="https://apps.canzitech.com/"
+                        class="text-sm font-semibold px-2.5 py-2 bg-red-600 text-white rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 5v14" />
+                            <path d="M19 12l-7 7-7-7" />
+                        </svg>
+                        <span data-i18n="download_btn">Download</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="relative overflow-hidden bg-gradient-to-br from-yellow-50 via-white to-amber-50 py-24">
+        <div class="hero-blob bg-yellow-400 w-96 h-96 top-[-100px] left-[-100px]"></div>
+        <div class="hero-blob bg-amber-300 w-80 h-80 bottom-[-80px] right-[-80px]"></div>
+        <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <span
+                        class="inline-block bg-yellow-100 text-yellow-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4"
+                        data-i18n="card_go_desc">Couriers act for you</span>
+                    <h1 class="text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6"
+                        data-i18n="service_go_title">
+                        Your personal courier, <span class="text-yellow-600">anywhere</span>
+                    </h1>
+                    <p class="text-xl text-gray-500 leading-relaxed mb-8" data-i18n="service_go_desc">
+                        Need someone to run an errand, pick something up, or handle a task across the city? Canzi
+                        couriers act on your behalf — fast, reliable, and hassle-free.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="https://play.google.com/store/apps/details?id=com.canzi.app" target="_blank"
+                            class="flex items-center bg-gray-100 px-5 py-3 rounded-xl text-black gap-3">
+                            <img src="https://www.presto.app/images/playStore.svg" class="w-6" alt="">
+                            <div class="text-left leading-tight">
+                                <span class="text-xs block">Download From</span>
+                                <span class="text-sm font-semibold">Google Play</span>
+                            </div>
+                        </a>
+
+                        <a href="https://apps.apple.com/ma/app/canzi/id6670179294" target="_blank"
+                            class="flex items-center bg-gray-100 px-5 py-3 rounded-xl text-black gap-3">
+                            <img src="https://www.presto.app/images/appStore.svg" class="w-6 brightness-0" alt="">
+                            <div class="text-left leading-tight">
+                                <span class="text-xs block">Download From</span>
+                                <span class="text-sm font-semibold">App Store</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div
+                            class="w-80 h-80 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl flex items-center justify-center shadow-2xl">
+                            <img src="image/chapeau-magique.png" class="w-56" alt="Go Anywhere">
+                        </div>
+                        <div
+                            class="absolute -bottom-4 -left-6 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="#d97706" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="13" cy="4" r="1" />
+                                <path d="M7 21l3-6 3 3 2-4 4 7" />
+                                <path d="M11 13l-2.5-5L6 11h4l2 5" />
+                            </svg>
+                            <div>
+                                <p class="text-xs text-gray-400">Response time</p>
+                                <p class="font-bold text-gray-900">~5 min</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute -top-4 -right-6 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="#d97706" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                <path d="M2 12h20" />
+                            </svg>
+                            <div>
+                                <p class="text-xs text-gray-400">Available</p>
+                                <p class="font-bold text-gray-900">24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-yellow-600 font-semibold text-sm uppercase tracking-widest mb-3"
+                    data-i18n="services_title_small">What we do</p>
+                <h2 class="text-4xl font-black text-gray-900" data-i18n="service_go_about_title">What can a Canzi
+                    courier do for you?</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-hover bg-yellow-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                            <line x1="3" x2="21" y1="6" y2="6" />
+                            <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="service_go_feat1_title">Run Errands</h3>
+                    <p class="text-gray-500 leading-relaxed" data-i18n="service_go_feat1_desc">Send a courier to pick up
+                        documents, items, or anything you need from anywhere in the city.</p>
+                </div>
+                <div class="card-hover bg-amber-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="service_go_feat2_title">Act on Your
+                        Behalf</h3>
+                    <p class="text-gray-500 leading-relaxed" data-i18n="service_go_feat2_desc">Our trusted couriers
+                        represent you — whether it's signing for a delivery or handling a pickup.</p>
+                </div>
+                <div class="card-hover bg-yellow-50 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="service_go_feat3_title">Save Time</h3>
+                    <p class="text-gray-500 leading-relaxed" data-i18n="service_go_feat3_desc">Stop wasting time in
+                        traffic. Let a Canzi courier handle it while you focus on what matters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-br from-yellow-50 to-amber-50">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-yellow-600 font-semibold text-sm uppercase tracking-widest mb-3">Step by step</p>
+                <h2 class="text-4xl font-black text-gray-900" data-i18n="service_how_title">How does it work?</h2>
+                <p class="text-gray-500 mt-4 text-lg" data-i18n="service_go_how_subtitle">Use your personal courier in 4
+                    steps</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <div class="step-wrap text-center relative">
+                    <div class="step-line">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-yellow-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                                <path d="M12 18h.01" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm mt-4">
+                        <span class="text-yellow-500 font-black text-4xl">01</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2" data-i18n="service_step1_title">Open the
+                            app</h3>
+                        <p class="text-gray-500 text-sm" data-i18n="service_step1_desc">Download Canzi and create your
+                            free account in seconds.</p>
+                    </div>
+                </div>
+                <div class="step-wrap text-center relative">
+                    <div class="step-line">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-amber-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                                <path d="m15 5 4 4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm mt-4">
+                        <span class="text-yellow-500 font-black text-4xl">02</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2" data-i18n="service_go_step2_title">
+                            Describe your task</h3>
+                        <p class="text-gray-500 text-sm" data-i18n="service_go_step2_desc">Tell us what you need —
+                            pickup location, destination, and any special instructions.</p>
+                    </div>
+                </div>
+                <div class="step-wrap text-center relative">
+                    <div class="step-line">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-yellow-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v5h-3" />
+                                <circle cx="7" cy="17" r="2" />
+                                <circle cx="17" cy="17" r="2" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm mt-4">
+                        <span class="text-yellow-500 font-black text-4xl">03</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2" data-i18n="service_go_step3_title">Courier
+                            is assigned</h3>
+                        <p class="text-gray-500 text-sm" data-i18n="service_go_step3_desc">A nearby trusted courier
+                            accepts your task and heads out immediately.</p>
+                    </div>
+                </div>
+                <div class="step-wrap text-center relative">
+                    <div class="step-line">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-amber-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm mt-4">
+                        <span class="text-yellow-500 font-black text-4xl">04</span>
+                        <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2" data-i18n="service_go_step4_title">Mission
+                            complete</h3>
+                        <p class="text-gray-500 text-sm" data-i18n="service_go_step4_desc">Track everything live and get
+                            notified when your task is done.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-r from-yellow-500 to-amber-600">
+        <div class="mx-auto max-w-4xl px-6 text-center">
+            <h2 class="text-4xl font-black text-white mb-4" data-i18n="service_go_cta_title">Let us handle it for you!
+            </h2>
+            <p class="text-yellow-100 text-lg mb-8" data-i18n="service_go_cta_desc">Download Canzi and send your first
+                courier today.</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="https://play.google.com/store/apps/details?id=com.canzi.app" target="_blank"
+                    class="flex items-center bg-white px-6 py-3 rounded-xl text-gray-900 gap-3 font-semibold hover:bg-gray-100 transition">
+                    <img src="https://www.presto.app/images/playStore.svg" class="w-6" alt="">Google Play
+                </a>
+                <a href="https://apps.apple.com/ma/app/canzi/id6670179294" target="_blank"
+                    class="flex items-center bg-white px-6 py-3 rounded-xl text-gray-900 gap-3 font-semibold hover:bg-gray-100 transition">
+                    <img src="https://www.presto.app/images/appStore.svg" class="w-6" alt="" style="filter: invert(1);">
+                    App Store
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-16 sm:py-16 lg:px-8 lg:py-16">
+            <div class="border-t border-gray-900/10 pt-12 xl:grid xl:grid-cols-3 xl:gap-8">
+                <img src="image/Canzi-Logo2 (1) (1).png" alt="" class="h-9 w-auto" />
+                <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm/6 font-semibold text-gray-950" data-i18n="footer_services">Services</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                <li><a href="restaurant.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_restaurants">Restaurants</a></li>
+                                <li><a href="supermarket.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_supermarkets">Supermarkets</a></li>
+                                <li><a href="shop.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_shop">Shop</a></li>
+                                <li><a href="go.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_go_anywhere">Go anywhere</a></li>
+                            </ul>
+                        </div>
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm/6 font-semibold text-gray-950" data-i18n="footer_support">Support</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                <li><a href="contactus.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_contact_us">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div class="mt-10 md:mt-0">
+                            <h3 class="text-sm/6 font-semibold text-gray-950" data-i18n="footer_legal">Legal</h3>
+                            <ul role="list" class="mt-6 space-y-4">
+                                <li><a href="privacy.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_privacy">Privacy policy</a></li>
+                                <li><a href="terms-of-use.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_terms_use">Terms of Use</a></li>
+                                <li><a href="condition-vente.html" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                                        data-i18n="footer_sales_terms">General Terms and Conditions of Sale</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-900/10 pt-8 flex items-center justify-between">
+                <p class="text-sm/6 text-gray-600" data-i18n="footer_rights">© 2024 Canzi Tech, All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.canzi.app"
+                        class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white">
+                        <img src="https://www.presto.app/images/playStore.svg" class="w-6 mr-3" alt="">
+                        <div class="text-left leading-tight"><span class="text-xs">Download From</span><br><span
+                                class="text-base font-semibold">Google Play</span></div>
+                    </a>
+                    <a target="_blank" href="https://apps.apple.com/ma/app/canzi/id6670179294"
+                        class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white">
+                        <img src="https://www.presto.app/images/appStore.svg" class="w-6 mr-3" alt="">
+                        <div class="text-left leading-tight"><span class="text-xs">Download From</span><br><span
+                                class="text-base font-semibold">App Store</span></div>
+                    </a>
+                </div>
+            </div>
+            <div class="w-full flex justify-center items-center gap-6 mt-8 pt-6">
+                <img src="image/visa-logo.svg" alt="VISA" class="h-14 object-contain">
+                <img src="image/payzone-logo.png" alt="Payzone" class="h-24 object-contain">
+                <img src="image/mastercard-logo.svg" alt="Mastercard" class="h-14 object-contain">
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</body>
+
+</html>
