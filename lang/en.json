@@ -240,5 +240,6 @@
   "service_go_step4_title": "Mission complete",
   "service_go_step4_desc": "Track everything live and get notified when your task is done.",
   "service_go_cta_title": "Let us handle it for you!",
-  "service_go_cta_desc": "Download Canzi and send your first courier today."
+  "service_go_cta_desc": "Download Canzi and send your first courier today.",
+  "footer_about_us" : "About us"
 }
