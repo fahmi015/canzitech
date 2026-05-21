@@ -31,6 +31,40 @@
   "faq_a1": "Canzi is a great Moroccan app that offers a variety of services such as ordering meals, grocery shopping, or even sending flowers directly to your home.",
   "faq_q2": "How does the Canzi app work?",
   "faq_a2": "The app connects customers with restaurants and local shops. You can easily place an order through the app, pay online, and track your delivery in real time.",
+  
+  
+  "faq_q3":"In which cities is the app available?",
+  "faq_a3":"Currently, the Canzi app is available in several Moroccan cities, and the service coverage is continuously expanding.",
+  
+  "faq_q4":"How can I order food or groceries through the app?",
+  "faq_a4":"You can easily order food or groceries through the Canzi app by browsing the menu, selecting products, and completing your order using the available payment methods.",
+
+   "faq_q5":"Are there any additional fees when using the app?",
+   "faq_a5":"Service or delivery fees may apply depending on the type of order and the distance, and all costs are displayed before confirming the order.",
+
+    "faq_q6":"Can I modify or cancel my order after placing it?",
+    "faq_a6":"Yes, you can modify or cancel your order within a short period after placing it, according to the store or restaurant policies",
+
+     "faq_q7":"What are the requirements to work as a driver?",
+     "faq_a7":"You must have a valid driver’s license, a suitable vehicle, and a smartphone to receive orders.",
+
+      "faq_q8":"What benefits will I get as a partner?",
+      "faq_a8":"You can expand your business reach, access more customers, and benefit from electronic payment and marketing services.",
+
+       "faq_q9":"How can I join Canzi as a partner (restaurant/store)?",
+       "faq_a9":"If you own a restaurant or store, you can register through the website or the app, and our team will contact you to activate your account.",
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   "download_app": "Download the app",
   "banner_text": "Discover the best restaurants and order your favorite dishes via the app",
   "footer_services": "Services",
@@ -85,20 +119,20 @@
   "privacy_legal_info": "Legal Information",
   "privacy_title": "Privacy Policy",
   "privacy_subtitle": "Learn how we collect, use, and protect your personal information on Canzi.",
-  "privacy_intro_title": "1. Introduction",
-  "privacy_intro_text": "Done is committed to protecting the privacy of its users, partners, and delivery drivers. This policy explains how we collect, use, share, and protect your personal data when using our services via the application or website.<br><br>We understand the importance of privacy and data protection in the digital age, and we are committed to the highest standards to ensure the safety of your personal information. This document is the main reference for understanding your rights and our obligations toward you as users of our platform.<br><br>By accessing this document, you acknowledge that you have read and understood the terms of this Privacy Policy, and you agree to our practices regarding data collection and processing as described on this page. We encourage you to review this policy periodically for any updates that may occur.",
-  "privacy_scope_title": "2. Scope of Application",
-  "privacy_scope_text": "This policy applies to all users of the Done application, including customers, partners (service providers), and delivery workers. This policy governs the practices of data collection, processing, and sharing within the Done platform.<br><br>This policy does not apply to external websites or services linked to the application. This policy has been prepared in accordance with the provisions of Law No. 08-09 relating to the protection of individuals with regard to the automated processing of personal data, as adopted by Royal Decree No. 1-09-15.<br><br>This scope applies to all devices whether smartphones, tablets, or desktop computers, and in all geographic regions where the platform operates. In the event of a conflict between this policy and any other agreement, the provisions of this policy shall prevail unless expressly stated otherwise.",
-  "privacy_collect_title": "3. Data We Collect",
-  "privacy_collect_text": "We collect multiple types of data in order to provide our services in an efficient and secure manner. This data includes information you provide directly when registering or using the services, as well as data collected automatically during your interaction with the platform.<br><br><strong>3.1 Identity Data:</strong><br>Full name<br>Email address<br>Phone number<br>Date of birth<br>Nationality<br><br><strong>3.2 Geographic Location Data:</strong><br>Real-time location during app usage<br>Delivery or pickup address<br>Saved locations history<br><br><strong>3.3 Usage Data:</strong><br>Order and transaction history<br>Time and date of each operation<br>Device type and operating system<br>IP address and browser used",
-  "privacy_legal_basis_title": "4. Legal Basis for Processing",
-  "privacy_legal_basis_text": "The processing of your personal data is based on clear and legitimate legal grounds in accordance with applicable legislation. We do not carry out any data processing without an explicit legal justification permitting it.<br><br>The main legal bases we rely on include: the user's explicit consent, contractual necessity for performing the requested services, compliance with legal and regulatory requirements, and legitimate interest in developing and improving our services.<br><br>You have the right at any time to withdraw your consent to the processing of your data, without affecting the lawfulness of processing carried out prior to the withdrawal. To withdraw consent, you may contact us through the designated channels mentioned at the end of this document.",
-  "privacy_purpose_title": "5. Purposes of Data Use",
-  "privacy_purpose_text": "We use the data we collect for specific and necessary purposes to operate the platform and improve the user experience. We do not use your data for purposes beyond what is declared in this policy without obtaining your prior consent.<br><br><strong>5.1 Primary Purposes:</strong><br>Providing delivery services and requested transactions<br>Creating and managing user accounts<br>Processing payments and billing<br>Communicating with users regarding their orders<br><br><strong>5.2 Secondary Purposes:</strong><br>Improving service quality and developing new features<br>Conducting statistical analyses and performance reports<br>Detecting fraud and preventing misuse<br>Complying with legal and regulatory requirements",
-  "privacy_sharing_title": "6. Data Sharing and Disclosure",
-  "privacy_sharing_text": "We do not sell your personal data to third parties in any form. We may share some of your data with trusted partners under strict controls that ensure its protection and use only for specified purposes.<br><br>Legitimate sharing cases include: electronic payment service providers, delivery partners, cloud infrastructure providers, and regulatory and supervisory authorities when legally required. In all these cases, we adhere to strict contracts that restrict data use and protect your privacy.<br><br>In the event of a merger, acquisition, or restructuring, your data may be transferred to the new entity, and you will be notified in advance with the option to delete your data if you wish.",
-  "privacy_retention_title": "7. Data Retention Period",
-  "privacy_retention_text": "We retain your personal data for the duration of your account activity with us, and for the period necessary after account closure to fulfill legal and regulatory obligations.<br><br>Retention periods vary by data type: transaction data is retained for 5 years in accordance with accounting requirements, identity data is retained for 3 years after the end of the contractual relationship, and usage data is retained for a period not exceeding one year.<br><br>After the retention periods expire, data is deleted or subjected to anonymization procedures in a secure and complete manner. You may at any time request the deletion of your data in accordance with the procedures outlined in the user rights section.",
+  "privacy_intro_title": "1. Information We Collect",
+  "privacy_intro_text": " Personal Information: Name, phone number.",
+  "privacy_scope_title": "2. How We Use Your Information",
+  "privacy_scope_text": "we use name and phone number to make appointment to visit you and provide our service.",
+  "privacy_collect_title": "3. Sharing Your Information",
+  "privacy_collect_text": "we don't share data with any third-party.",
+  "privacy_legal_basis_title":"4. Data Security",
+  "privacy_legal_basis_text": "We implement industry-standard security measures to protect your data. However, no method of transmission over the internet or electronic storage is 100% secure.",
+  "privacy_purpose_title": "5. Your Rights",
+  "privacy_purpose_text": "Correction: You can request corrections to your data send us an email to support@canzitech.com. Deletion: You can request the deletion of your data send us an email to support@canzitech.com.",
+  "privacy_sharing_title": "6.Changes to This Privacy Policy",
+  "privacy_sharing_text": "We may update this policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.",
+  "privacy_retention_title": "7. Contact Us",
+  "privacy_retention_text": "If you have any questions about this Privacy Policy, please contact us at support@canzitech.com",
   "privacy_security_title": "8. Data Security Measures",
   "privacy_security_text": "We implement advanced technical and organizational measures to protect your personal data from unauthorized access, disclosure, modification, or deletion. These measures include full encryption of data during transmission and storage using SSL/TLS protocols and AES-256 standards.<br><br>We adopt a limited access policy whereby no employee may access data except within the scope required by their job. We also conduct periodic security audits and penetration tests to detect any potential vulnerabilities and address them before they pose a risk.<br><br>Despite the seriousness of the measures taken, absolute security cannot be guaranteed for any electronic system. We therefore recommend that you take your own precautions, such as using strong passwords and not sharing your login credentials with any third party.",
   "privacy_breach_title": "9. Data Breach Management",
