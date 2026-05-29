@@ -4,11 +4,90 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Canzi Tech is South Morocco's premier on-demand delivery app, offering fast and reliable food, grocery, and local delivery services powered by modern technology and real-time tracking." />
+
+    <title>Canzi Tech – South Morocco's Premier On-Demand Delivery App</title>
+
+    <link rel="icon" type="image/png" href="image/logo-canzi (2).png" />
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="js/i18n.js"></script>
 </head>
+
 <!-- Custom animation (optional) -->
 <style>
+    #logoTrack {
+        direction: ltr;
+        animation: scrollLogos 25s linear infinite;
+        width: max-content;
+        gap: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    @keyframes scrollLogos {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    #logoTrack:hover {
+        animation-play-state: paused;
+    }
+
+    .logo-slide-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 40px;
+        height: 80px;
+        min-width: 160px;
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+
+    .logo-slide-item img {
+        height: 60px;
+        width: auto;
+        max-width: 160px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+
+    .logo-slide-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .logo-fallback {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        transition: color 0.3s ease;
+    }
+
+    .logo-slide-item:hover .logo-fallback {
+        color: rgba(255, 255, 255, 1);
+    }
+
+    .logo-divider {
+        width: 1px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
+        align-self: center;
+    }
+
+    
+
     .faq-item.open {
         border-color: #fca5a5 !important;
     }
@@ -287,7 +366,8 @@
                         <div class="flex flex-wrap gap-4">
                             <!-- Google Play -->
                             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.canzi.app"
-                                class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white">
+                                class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white"
+                                dir="ltr">
                                 <img src="https://www.presto.app/images/playStore.svg" class="w-6 mr-3" alt="">
                                 <div class="text-left leading-tight">
                                     <span class="text-xs">Download From</span><br>
@@ -297,7 +377,8 @@
 
                             <!-- App Store -->
                             <a target="_blank" href="https://apps.apple.com/ma/app/canzi/id6670179294"
-                                class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white">
+                                class="flex items-center bg-black/80 hover:bg-black px-5 py-3 rounded-xl text-white"
+                                dir="ltr">
                                 <img src="https://www.presto.app/images/appStore.svg" class="w-6 mr-3" alt="">
                                 <div class="text-left leading-tight">
                                     <span class="text-xs">Download From</span><br>
@@ -310,6 +391,169 @@
             </section>
 
         </div>
+    </div>
+
+    <div class="w-full py-16 overflow-hidden" style="background: #ffffff;" dir="ltr">
+        <div class="text-center mb-10">
+            <p class="text-gray-900 text-3xl font-bold" data-i18n="slider_title">Trusted by <span
+                    class="text-red-500">100+</span> Businesses</p>
+        </div>
+
+        <div class="relative w-full overflow-hidden" id="logoSliderWrapper">
+
+            <div class="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style="background: linear-gradient(to right, #ffffff, transparent);"></div>
+            <!-- Fade droite -->
+            <div class="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style="background: linear-gradient(to left, #ffffff, transparent);"></div>
+            <!-- Track -->
+            <div class="flex items-center" id="logoTrack"
+                style="animation: scrollLogos 25s linear infinite; width: max-content; gap: 0;">
+
+                <!-- Logo 1 — Restaurant partenaire -->
+                <div class="logo-slide-item">
+                    <img src="image/aroma.jpeg" alt="Restaurant"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">Aroma</div>
+                </div>
+                <div class="logo-divider"></div>
+
+                <!-- Logo 2 -->
+                <div class="logo-slide-item">
+                    <img src="image/canzi.webp" alt="Supermarket"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">Canzi Market </div>
+                </div>
+                <div class="logo-divider"></div>
+
+                <!-- Logo 3 -->
+                <div class="logo-slide-item">
+                    <img src="image/baristas.jpeg" alt="Shop"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">Baristas</div>
+                </div>
+                <div class="logo-divider"></div>
+
+                <!-- Logo 4 -->
+                <div class="logo-slide-item">
+                    <img src="image/fleur.jpeg" alt="Partner"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">Nova Fleurs</div>
+                </div>
+                <div class="logo-divider"></div>
+
+                <!-- Logo 5 -->
+                <div class="logo-slide-item">
+                    <img src="image/gardenia.jpg" alt="Partner 2"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">Gardenia</div>
+                </div>
+                <div class="logo-divider"></div>
+
+                <!-- Logo 6 -->
+                <div class="logo-slide-item">
+                    <img src="image/LA-FAVORITA-(1).png" alt="Partner 3"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">Sisters</div>
+                </div>
+                <div class="logo-divider"></div>
+
+                <!-- Logo 7 -->
+                <div class="logo-slide-item">
+                    <img src="image/LAMDON.webp" alt="Partner 4"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">Lamadon</div>
+                </div>
+                <div class="logo-divider"></div>
+
+                <!-- Logo 8 -->
+                <div class="logo-slide-item">
+                    <img src="image/bloom.jpeg" alt="Partner 4"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">My Bloom</div>
+                </div>
+
+                <div class="logo-divider"></div>
+
+                <!-- Logo 9-->
+
+                <div class="logo-slide-item">
+                    <img src="image/lp.png" alt="Supermarket"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">Patiserie louban</div>
+                </div>
+                <div class="logo-divider"></div>
+
+                <!-- Logo 10 -->
+
+                <div class="logo-slide-item">
+                    <img src="image/machawi.png" alt="Shop"
+                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="logo-fallback" style="display:none;">Machawi dajaj</div>
+                </div>
+                <div class="logo-divider"></div>
+                <!-- Logo 11 -->
+
+                <div class="logo-slide-item">
+
+                <img src="image/micasita.webp" alt="Partner"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback" style="display:none;">Mi Casita</div>
+            </div>
+            <div class="logo-divider"></div>
+
+            <!-- Logo 12 -->
+
+            <div class="logo-slide-item">
+                <img src="image/pikvit.jpeg" alt="Partner 2"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback" style="display:none;">Pik Vite</div>
+            </div>
+
+            <div class="logo-divider"></div>
+
+            <!-- ===== DUPLIQUER POUR LA BOUCLE INFINIE ===== -->
+            <div class="logo-slide-item">
+                <img src="image/logo-paraline-jpg_102852-_1_.webp" alt="Restaurant"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback" style="display:none;">Paraline</div>
+            </div>
+
+
+            <div class="logo-divider"></div>
+            <div class="logo-slide-item">
+                <img src="image/pizzahouse.jpg" alt="Partner 3"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback" style="display:none;">Pizza House</div>
+            </div>
+            <div class="logo-divider"></div>
+            <div class="logo-slide-item">
+                <img src="image/restoasdikaa.jpg" alt="Partner 4"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback" style="display:none;">Al Asdikaa</div>
+            </div>
+            <div class="logo-divider"></div>
+            <div class="logo-slide-item">
+                <img src="image/ricety.jpeg" alt="Partner 4"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback" style="display:none;">Ricety</div>
+            </div>
+            <div class="logo-divider"></div>
+            <div class="logo-slide-item">
+                <img src="image/snackargan.webp" alt="Partner 4"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback" style="display:none;">Argan</div>
+            </div>
+            <div class="logo-divider"></div>
+            <div class="logo-slide-item">
+                <img src="image/tacosouth.jpg" alt="Partner 4"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="logo-fallback" style="display:none;">Tacos South</div>
+            </div>
+
+
+        </div>
+    </div>
     </div>
 
     <div id="services" class="w-full py-16 bg-white">
@@ -326,9 +570,6 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">
 
             <!-- CARD 1 -->
-
-
-
 
             <a href="restaurant.html" class="relative group bg-gradient-to-r from-red-400 to-red-600 rounded-2xl p-8 pb-42 text-white cursor-pointer 
 transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.03]
@@ -378,9 +619,6 @@ hover:shadow-xl relative block">
             </a>
             <!-- CARD 3 -->
 
-
-
-
             <a href="shop.html" class="service-card group bg-gradient-to-r from-purple-400 to-purple-600 rounded-2xl p-8 pb-42 text-white cursor-pointer 
 transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.03]
 hover:shadow-xl relative block">
@@ -404,8 +642,6 @@ hover:shadow-xl relative block">
             </a>
 
             <!-- CARD 4 -->
-
-
 
             <a href="go.html" class="service-card group bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-2xl p-8 pb-42 text-white cursor-pointer 
 transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.03]
@@ -432,51 +668,7 @@ hover:shadow-xl relative block">
     </div>
 
 
-    <!-- <div id="partners" class="bg-red-50 w-full py-24">
-        <div class="mx-auto max-w-7xl">
-            <div class="max-w-4xl mx-auto">
-                <p class="text-red-600 font-semibold text-center" data-i18n="partner_small">Be our partner</p>
-                <h1 class="text-4xl px-24 text-center font-semibold my-4 headline-4" data-i18n="partner_title">
-                    Your opportunity to succeed and achieve financial independence starts here!
-                </h1>
 
-                <span class="text-lg text-center text-gray-600" data-i18n="partner_desc">
-                    Are you a shopkeeper, restaurateur, or entrepreneur? We're here to support you, step by step.
-                </span>
-            </div>
-
-            <div class="my-12 flex w-full justify-between gap-x-6">
-                <div class="partner-box w-1/2 bg-white text-center border border-gray-50 rounded-xl p-4">
-                    <div class="box__icon">
-                        <img src="https://done.ma/app/uploads/2025/04/driver.svg" alt="">
-                    </div>
-
-                    <h1 class="my-2 text-2xl font-semibold" data-i18n="partner_driver_title">Become a delivery driver
-                    </h1>
-                    <span class="text-lg text-gray-500" data-i18n="partner_driver_desc">Generate your own income and
-                        choose the hours that suit
-                        you.</span>
-
-                    <a href="https://scripts.canzitech.com/LIVREUR" class="button" data-i18n="btn_start_now">Start
-                        now</a>
-                </div>
-
-
-                <div class="partner-box w-1/2 bg-white text-center border border-gray-50 rounded-xl p-4">
-                    <div class="box__icon">
-                        <img src="https://done.ma/app/uploads/2025/04/store.svg" alt="">
-                    </div>
-
-                    <h1 class="my-2 text-2xl font-semibold" data-i18n="partner_store_title">Become a partner</h1>
-                    <span class="text-lg text-gray-500" data-i18n="partner_store_desc">Do you own a restaurant or shop?
-                        Join us and
-                        introduce your services to even more customers.</span>
-
-                    <a href="" class="button" data-i18n="btn_start_now">Start now</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
 
     <div id="partners" class="bg-white w-full py-24">
@@ -547,72 +739,6 @@ hover:shadow-xl relative block">
             </div>
         </div>
     </div>
-    <!-- <div class="bg-white">
-        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
-            <div class="mx-auto max-w-4xl">
-                <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl" data-i18n="faq_title">
-                    Frequently asked questions
-                </h2>
-                <dl class="mt-16 divide-y divide-gray-900/10">
-                    <div class="py-6 first:pt-0 last:pb-0">
-                        <dt>
-                            <button type="button" command="--toggle" commandfor="faq-0"
-                                class="flex w-full items-start justify-between text-left text-gray-900">
-                                <span class="text-base/7 font-semibold" data-i18n="faq_q1">What is the Canzi app?</span>
-                                <span class="ml-6 flex h-7 items-center">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                        data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                                        <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                        data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                                        <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </dt>
-                        <el-disclosure id="faq-0" class="contents">
-                            <dd class="mt-2 pr-12">
-                                <p class="text-base/7 text-gray-600" data-i18n="faq_a1">
-                                    Canzi is a great Moroccan app that offers a variety of services such as
-                                    ordering meals, grocery shopping, or even sending flowers
-                                    directly to your home.
-                                </p>
-                            </dd>
-                        </el-disclosure>
-                    </div>
-                    <div class="py-6 first:pt-0 last:pb-0">
-                        <dt>
-                            <button type="button" command="--toggle" commandfor="faq-1"
-                                class="flex w-full items-start justify-between text-left text-gray-900">
-                                <span class="text-base/7 font-semibold" data-i18n="faq_q2">How does the Canzi app
-                                    work?</span>
-                                <span class="ml-6 flex h-7 items-center">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                        data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                                        <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                        data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                                        <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </dt>
-                        <el-disclosure id="faq-1" hidden class="contents">
-                            <dd class="mt-2 pr-12">
-                                <p class="text-base/7 text-gray-600" data-i18n="faq_a2">The app connects customers with
-                                    restaurants
-
-                                    and local shops. You can easily place an order through the app, pay
-                                    online, and track your delivery in real time.</p>
-                            </dd>
-                        </el-disclosure>
-                    </div>
-                </dl>
-            </div>
-        </div>
-    </div> -->
 
     <div class="bg-white">
         <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
@@ -905,19 +1031,25 @@ hover:shadow-xl relative block">
                         <a href="https://www.facebook.com/canziapp" class="text-gray-600 hover:text-gray-800">
                             <span class="sr-only">Facebook</span>
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-6">
-                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                <path
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    clip-rule="evenodd" fill-rule="evenodd"></path>
                             </svg>
                         </a>
                         <a href="https://www.instagram.com/canziapp" class="text-gray-600 hover:text-gray-800">
                             <span class="sr-only">Instagram</span>
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-6">
-                                <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                                <path
+                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                    clip-rule="evenodd" fill-rule="evenodd"></path>
                             </svg>
                         </a>
                         <a href="#" class="text-gray-600 hover:text-gray-800">
                             <span class="sr-only">X</span>
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-6">
-                                <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z"></path>
+                                <path
+                                    d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z">
+                                </path>
                             </svg>
                         </a>
                     </div>
@@ -994,40 +1126,29 @@ hover:shadow-xl relative block">
 
             <div class="mt-12 border-t border-gray-900/10 pt-8 flex items-center justify-between">
                 <p class="text-sm/6 text-gray-600" data-i18n="footer_rights">© 2024 Canzi Tech, All rights reserved.</p>
-                <div class="flex gap-4">
+                <div class="flex gap-4" dir="ltr">
                     <a href="https://play.google.com/store/apps/details?id=com.canzi.app" target="_blank"
-                            class="flex items-center bg-gray-100 px-5 py-3 rounded-xl text-black gap-3">
-                            <img src="https://www.presto.app/images/playStore.svg" class="w-6" alt="">
-                            <div class="text-left leading-tight">
-                                <span class="text-xs block">Download From</span>
-                                <span class="text-sm font-semibold">Google Play</span>
-                            </div>
-                        </a>
+                        class="flex items-center bg-gray-100 px-5 py-3 rounded-xl text-black gap-3">
+                        <img src="https://www.presto.app/images/playStore.svg" class="w-6" alt="">
+                        <div class="text-left leading-tight">
+                            <span class="text-xs block">Download From</span>
+                            <span class="text-sm font-semibold">Google Play</span>
+                        </div>
+                    </a>
 
-                        <a href="https://apps.apple.com/ma/app/canzi/id6670179294" target="_blank"
-                            class="flex items-center bg-gray-100 px-5 py-3 rounded-xl text-black gap-3">
-                            <img src="https://www.presto.app/images/appStore.svg" class="w-6 brightness-0" alt="">
-                            <div class="text-left leading-tight">
-                                <span class="text-xs block">Download From</span>
-                                <span class="text-sm font-semibold">App Store</span>
-                            </div>
-                        </a>
+                    <a href="https://apps.apple.com/ma/app/canzi/id6670179294" target="_blank"
+                        class="flex items-center bg-gray-100 px-5 py-3 rounded-xl text-black gap-3">
+                        <img src="https://www.presto.app/images/appStore.svg" class="w-6 brightness-0" alt="">
+                        <div class="text-left leading-tight">
+                            <span class="text-xs block">Download From</span>
+                            <span class="text-sm font-semibold">App Store</span>
+                        </div>
+                    </a>
                 </div>
             </div>
 
-            <div class="w-full flex justify-center items-center gap-6 mt-8 pt-6 ">
-                <!-- VISA -->
-                <img src="image/visa-logo.svg" alt="VISA" class="h-14 object-contain">
-
-                <!-- Payzone  -->
-                <img src="image/payzone-logo.png" alt="Payzone" class="h-24 object-contain">
-
-                <!-- Mastercard -->
-                <img src="image/mastercard-logo.svg" alt="Mastercard" class="h-14 object-contain">
-
-                <img src="image/chaabicash.png" alt="E-money" class="h-10 object-contain">
-
-                <img src="image/cmi.jpeg" alt="E-money" class="h-14 object-contain">
+            <div class="w-full flex justify-center items-center mt-8 pt-6">
+                <img src="image/payment-secure.jpeg" alt="Secure Payment" class="h-16 object-contain">
             </div>
 
 
